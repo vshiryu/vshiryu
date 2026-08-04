@@ -6,8 +6,8 @@ Full-stack developer. I work with the whole stack, from React frontends to Pytho
 
 [![Profile Summary](images/profile-summary.svg)](https://github.com/vshiryu)
 
-[![Top Languages](images/top-languages.svg)](https://github.com/vshiryu)
-[![Streak](https://streak-stats.demolab.com?user=vshiryu&theme=tokyonight&hide_border=true)](https://github.com/vshiryu)
+<a href="https://github.com/vshiryu"><img height="195" src="images/top-languages.svg" alt="Top Languages" /></a>
+<a href="https://github.com/vshiryu"><img height="195" src="https://streak-stats.demolab.com?user=vshiryu&theme=tokyonight&hide_border=true" alt="GitHub Streak" /></a>
 
 </div>
 
