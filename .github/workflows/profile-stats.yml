@@ -1,0 +1,53 @@
+name: Update profile statistics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 6 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/profile-stats.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-statistics
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v6
+
+      - name: Generate profile summary
+        uses: cicirello/user-statistician@v1
+        with:
+          image-file: images/profile-summary.svg
+          colors: dark-dimmed
+          category-order: contributions, repositories
+          include-title: false
+          image-width: 720
+          show-border: false
+          commit-message: "chore: update profile summary"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages
+        uses: cicirello/user-statistician@v1
+        with:
+          image-file: images/top-languages.svg
+          colors: dark-dimmed
+          category-order: languages
+          custom-title: Top Languages
+          max-languages: 8
+          image-width: 350
+          show-border: false
+          commit-message: "chore: update top languages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
